@@ -1,0 +1,13 @@
+ul.ulLineal li {
+    list-style: none;
+    float: left;
+    margin-right: 15px;
+}
+
+ul.ulLineal li i {
+    color: #ff6600;
+}
+
+.input-group.mb-3.search {
+    margin: 20px auto;
+}
