@@ -14,12 +14,20 @@ import { LoginComponent } from './components/login/login.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatButtonModule} from '@angular/material/button';
+import { AuthenticationGuard } from './services/authentication.guard';
+import { HttpClientModule } from '@angular/common/http';
+import { AuthenticationService } from './services/authentication.service';
+import { ToSellComponent } from './components/to-sell/to-sell.component';
+import { ImageUploaderModule } from 'ngx-image-uploader';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: '', component: HomeComponent },
-  { path: 'productos/:id', component: ViewsProductsComponent },
+  { path: 'productos/:id', component: ViewsProductsComponent, canActivate: [AuthenticationGuard] },
   { path: 'login', component: LoginComponent},
+  { path: 'vender', component: ToSellComponent},
 ];
 
 @NgModule({
@@ -31,6 +39,8 @@ const routes: Routes = [
     TopmenuComponent,
     ViewsProductsComponent,
     LoginComponent,
+    ToSellComponent,
+
   ],
     
   imports: [
@@ -40,9 +50,12 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ImageCropperModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatButtonModule,
+    HttpClientModule,
+    ImageUploaderModule,
   ],
-  providers:[],
+  providers:[AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

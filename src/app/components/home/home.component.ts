@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
     "id":"1",
     "titulo":"Torta de Chocolate",
     "description":"Some quick example text to build on the card title and make up the bulk of the card's content.",
-    "precio":"5.00",
+    "precio":"$25.000",
     "img":"/assets/images/productos/1.jpg"
  },
  {

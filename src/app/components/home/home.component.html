@@ -1,12 +1,15 @@
 <div class="container">
+    <div>
+        <h3>Destacados</h3>
     <div class="row">
-        <div class="card" style="width: 18rem;" *ngFor="let pro of Productos; index as i">
+        <div class="card" style="width: 16rem;" *ngFor="let pro of Productos; index as i">
+            <a class="btn" (click)="idProduct(pro.id)">
             <img src="{{pro.img}}" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">{{pro.titulo}}</h5>
-                <p class="card-text">{{pro.description}}</p>
-                <a class="btn btn-orange" (click)="idProduct(pro.id)">Comprar</a>
+                <h5 class="card-title">{{pro.precio}}</h5>
+                <p class="card-text">{{pro.titulo}}</p>
             </div>
+            </a>
         </div>
     </div>
 </div>

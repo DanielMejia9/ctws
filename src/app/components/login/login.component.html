@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-7">
-            <form>
                 <mat-tab-group mat-align-tabs="center" animationDuration="0ms">
-                    <mat-tab label="Crear Cuenta">
+                    <mat-tab label="Crear Cuenta" >
+                        <form #frmRegister="ngForm" >
                         <br><br>
                         <div class="form-group row">
                             <div class="col-sm-10">
@@ -14,7 +14,7 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Tu nombre completo"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                        aria-label="Username" name="name"  ngModel required aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Tu email o usuario"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                        aria-label="Username" name="email"  ngModel required aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -38,19 +38,33 @@
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Tu contraseña"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="password" class="form-control" placeholder="Tu contraseña"
+                                        aria-label="Username" name="password"  ngModel required aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <a class="form-control form-control-lg btn btn-orange" type="button">Crear cuenta</a>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                class="fas fa-key"></i></span>
+                                    </div>
+                                    <input type="password" class="form-control" placeholder="Confirma tu contraseña"
+                                        aria-label="Username" name="password_confirmation"  ngModel required aria-describedby="basic-addon1">
+                                </div>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-sm-10">
+                                <button type="button" mat-raised-button class="form-control form-control-lg btn btn-orange" (click)="onRegister(frmRegister)" >Crear cuenta</button>
+                            </div>
+                        </div>
+                    </form>
                     </mat-tab>
-                    <mat-tab label=" Ingresar ">
+                    <mat-tab label=" Ingresar">
                         <br><br>
+                        <form #frmLogin="ngForm">
                         <div class="form-group row">
                             <div class="col-sm-10">
                                 <div class="input-group mb-3">
@@ -60,7 +74,7 @@
                                         </span>
                                     </div>
                                     <input type="text" class="form-control" placeholder="Tu email o usuario"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                        aria-label="Username" name="email"  ngModel required aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
@@ -71,17 +85,17 @@
                                         <span class="input-group-text" id="basic-addon1"><i
                                                 class="fas fa-key"></i></span>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="Tu contraseña"
-                                        aria-label="Username" aria-describedby="basic-addon1">
+                                    <input type="password" class="form-control" placeholder="Tu contraseña"
+                                        aria-label="Username" name="password"  ngModel required aria-describedby="basic-addon1">
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-10">
-                                <a class="form-control form-control-lg btn btn-orange" type="button">Ingresar</a>
+                               <button mat-raised-button class="form-control form-control-lg btn btn-orange" (click)="onLogin(frmLogin)" >Ingresar</button>
                             </div>
                         </div>
-
+                    </form>
                     </mat-tab>
                 </mat-tab-group>
 
@@ -99,7 +113,6 @@
 ></image-cropper>
 
 <img [src]="croppedImage" />-->
-            </form>
         </div>
         <div class="col-md-5">
             <img src="/assets/images/productos/1.jpg" class="img-fluid">
@@ -107,3 +120,4 @@
 
     </div>
 </div>
+
