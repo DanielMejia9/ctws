@@ -7,6 +7,8 @@
 # Only exists if Bazel was run
 /bazel-out
 
+#/ignore the images
+/src/assets/images/*
 # dependencies
 /node_modules
 
